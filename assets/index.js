@@ -5,6 +5,15 @@ let upperCase;
 let numeric;
 
 function generateButton() {
+  //Ask the user for the lenght of the password
+  //Check if the length is between 8 and 128 chacaters
+  passwordLength = prompt(
+    "How many characters? Please enter a number between 8-128."
+  );
+
+  if (passwordLength < 8 || passwordLength > 128) {
+    return alert("Password Length Must be between 8-128 characters!");
+  }
   getUserOptions();
 
   generatePassword(
@@ -14,10 +23,6 @@ function generateButton() {
     upperCase,
     numeric
   );
-
-  //Generate password and display on screen
-
-  console.log("Hello World!");
 }
 
 function generatePassword(
@@ -35,7 +40,7 @@ function generatePassword(
     upperCase == false &&
     numeric == false
   )
-    return alert("At least one character type must be selected ");
+    return alert("At least one character type must be selected!");
 
   if (specialCharacters === true) {
     for (let i = 0; i < passwordLength; i++) {
@@ -87,16 +92,6 @@ function generatePassword(
 }
 
 function getUserOptions() {
-  //Ask the user for the lenght of the password
-  //Check if the length is between 8 and 128 chacaters
-  passwordLength = prompt(
-    "How many characters? Please enter a number between 8-128."
-  );
-
-  if (passwordLength < 8 || passwordLength > 128) {
-    return alert("Password Length Must be between 8-128 characters!");
-  }
-
   //Ask the user if they would like special characters in the password
   specialCharacters = confirm("Would you like special characters?");
 
