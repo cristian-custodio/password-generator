@@ -11,6 +11,10 @@ function generateButton() {
     "How many characters? Please enter a number between 8-128."
   );
 
+  if (isNaN(passwordLength) === true) {
+    return alert("Password length must be provided as a number");
+  }
+
   if (passwordLength < 8 || passwordLength > 128) {
     return alert("Password Length Must be between 8-128 characters!");
   }
