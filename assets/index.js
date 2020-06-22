@@ -4,6 +4,12 @@ let lowerCase;
 let upperCase;
 let numeric;
 
+window.onload = function () {
+  let storedPassword = localStorage.getItem("PreviouslyGenerated");
+  let passwordField = document.getElementById("passwordField");
+  passwordField.innerHTML = storedPassword;
+};
+
 function generateButton() {
   //Ask the user for the lenght of the password
   //Check if the length is between 8 and 128 chacaters
@@ -93,6 +99,9 @@ function generatePassword(
   //Place array in html
   let passwordField = document.getElementById("passwordField");
   passwordField.innerHTML = generatedPassword;
+
+  //Save password to local storage
+  localStorage.setItem("PreviouslyGenerated", generatedPassword);
 }
 
 function getUserOptions() {
